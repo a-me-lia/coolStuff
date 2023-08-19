@@ -1,113 +1,114 @@
-import Image from 'next/image'
+"use client";
+import Image from "next/image";
+import { comma } from "postcss/lib/list";
+import { use, useEffect, useState } from "react";
 
 export default function Home() {
+  const [scroll, setScroll] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useEffect(function () {
+    if (typeof window !== "undefined") setHeight(window.innerHeight);
+  }, []);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", (event) => {
+      let scroll = scrollY;
+      //console.log(scroll)
+      setScroll(scroll);
+    });
+    window.addEventListener("resize", (event) => {
+      let height = innerHeight;
+      //console.log(scroll)
+      setHeight(height);
+    });
+  }
+
+  useEffect(
+    function () {
+      for (let i = 0; i < document.getElementsByTagName("p").length; i++) {
+        let element = document.getElementsByTagName("p")[i];
+        if (element.className.search("fancy") != -1) {
+          if (
+            element.className.search("opacity-100 ") == -1 &&
+            element.className.search("opacity-10 ") == -1
+          )
+            element.className = element.className + " opacity-10 ";
+          if (height - element.getBoundingClientRect().top > 196) {
+            element.className = element.className.replace(
+              "opacity-10 ",
+              "opacity-100 ",
+            );
+          } else {
+            element.className = element.className.replace(
+              "opacity-100 ",
+              "opacity-10 ",
+            );
+          }
+          // if(i == 1)console.log(element.className)
+
+          // if(i == 1)console.log(element.getBoundingClientRect().top )
+          // if(i == 1)console.log( height - element.getBoundingClientRect().top )
+        }
+      }
+    },
+    [height, scroll],
+  );
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+    <main className="min-h-screen bg-white flex flex-col">
+      <div className="w-1/2 mx-auto mt-24 text-[18px] space-y-12 font-mono">
+        <h1 className="text-[#ff0000] text-[32px]">
+          Caroline is allergic to shrimp
+        </h1>
+
+        <p className=" transition-opacity duration-1000 fancy">
+          Marin is boisterous, extravagant, messy, and while quite mature,
+          she&apos;s also clumsy. As a cosplayer and huge otaku, Marin is a big
+          of fan of magical girl anime and adult video games. She strongly
+          desires to cosplay as certain characters, seeing the notion of
+          dressing up and becoming said characters as the ultimate form of love
+          for them.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <p className="transition-opacity duration-1000 fancy">
+          Marin&apos;s love for the characters she likes extends to the point
+          where she won&apos;t cosplay as them if she feels as though she
+          can&apos;t fit their appearance, not wanting to spoil their image. She
+          is notably very kind, friendly, cheerful, and outgoing. It is shown
+          that Marin greatly dislikes overly-critical people that judge others
+          for their interests, causing her to reject the advances of a boy at
+          the start of the series, who poked fun at her liking anime.
+          Marin&apos;s non-judgmental outlook and friendly nature causes her to
+          greatly admire Wakana, not caring that the boy is seen as awkward and
+          quiet by others. She saw no reason to keep their newfound friendship
+          and a secret, openly greeting him in the school hallways and later
+          treating him at a ramen restaurant.
+        </p>
+        <p className="fancy transition-opacity duration-1000">
+          Marin holds her own values and can be quite earnest when it comes to
+          it, despite her cheery and carefree attitude. For example, she easily
+          saw how Wakana was being taken advantage of by his classmates and told
+          him that he shouldn&apos;t put up with that. Also, when Wakana began
+          purposefully avoiding her out of embarrassment due to other students
+          finding out about their friendship, Marin confronted him herself,
+          telling Wakana to tell her outright if he had a problem with being
+          around her. While possessing a mature side, Marin can be something of
+          a scatterbrain on occasion.
+        </p>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <p className="fancy transition-opacity duration-1000">
+          She poorly knitted a prototype of her first cosplay outfit (Shizuku),
+          despite a guidebook she possessed having step-by-step instructions.
+          She is also a procrastinator, often opting to watch anime over doing
+          work and completely losing track of time as a result. Despite this,
+          she can be surprisingly proactive at times, such as finding out where
+          Wakana lived so they could start their first cosplay project right
+          away rather than waiting over the weekend. Marin claims that when she
+          gets an idea, she doesn&apos;t waste time and gets straight to it,
+          revealing a more rash and impulsive side.
+        </p>
       </div>
     </main>
-  )
+  );
 }
