@@ -57,14 +57,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
-      <div className="w-1/2 mx-auto mt-12 text-[18px] space-y-12 font-mono">
+      <div className="w-1/2 mx-auto mt-12 mb-24 text-[18px] space-y-12 font-mono ">
         <h1 className="text-[#ff0000] text-[32px]">
           Caroline is allergic to shrimp
         </h1>
 
-        <div className="relative w-full h-[420px]"><Image src='/china.jpeg' alt='' fill></Image></div>
-
-
+        <div className="relative w-full h-[420px]">
+          <Image src="/china.jpeg" alt="" fill></Image>
+        </div>
 
         <p className=" transition-opacity duration-1000 fancy">
           Marin is boisterous, extravagant, messy, and while quite mature,
