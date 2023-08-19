@@ -31,7 +31,7 @@ export default function RevalingText() {
             element.className.search("opacity-10 ") == -1
           )
             element.className = element.className + " opacity-10 ";
-          if (height - element.getBoundingClientRect().top > 196) {
+          if (height - element.getBoundingClientRect().top > 128) {
             element.className = element.className.replace(
               "opacity-10 ",
               "opacity-100 ",
