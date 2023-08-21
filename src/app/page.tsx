@@ -103,6 +103,10 @@ export default function Page() {
   //     [ProcessAnimationBar, elements, scroll, scrolling],
   //   );
 
+  //TODO:
+  //set scrolling to true for duration of the autoscroll so that the nav cannot be triggered in between
+  //implement checking of scrolling var before function call in each element below
+
   const offset = -120;
 
   return (
