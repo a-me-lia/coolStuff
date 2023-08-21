@@ -58,27 +58,14 @@ export default function Page() {
     [selectedTab],
   );
 
-  useEffect(
-    function () {
-      //console.log(scroll)
-      //console.log(projects);
-      for (let i = elements.length - 1; i >= 0; i--) {
-        if (elements[i] < 500) {
-          ProcessAnimationBar(i.toString());
-          return;
-        }
-        ProcessAnimationBar("0");
-      }
-    },
-    [ProcessAnimationBar, elements, scroll],
-  );
+
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="md:mx-auto md:w-[742px] h-24 flex flex-col justify-end">
+      <div className="md:mx-auto md:w-[742px] h-24 flex flex-col justify-end fixed right-0 top-0 left-0 z-50 bg-white">
         {" "}
         <nav>
-          <div className="flex flex-row w-full bg-white items-baseline justify-between ">
+          <div className="flex flex-row w-full  items-baseline justify-between ">
             <div className="flex flex-col font-mono text-[16px] w-full bg-white">
               <ul className="flex flex-row items-baseline">
                 <li className="pr-10" onClick={() => ProcessAnimationBar("0")}>
@@ -115,7 +102,7 @@ export default function Page() {
 
       <div
         id="style-1"
-        className="mx-4 w-full md:mx-auto md:w-[742px] mt-12 relative "
+        className="mx-4 w-full md:mx-auto md:w-[742px] mt-24 relative "
       >
         <div
           className="w-full h-[800px] bg-red-300"
