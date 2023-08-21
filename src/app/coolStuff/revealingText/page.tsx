@@ -24,8 +24,6 @@ export default function Home() {
     });
   }
 
-
-
   useEffect(
     function () {
       for (let i = 0; i < document.getElementsByTagName("p").length; i++) {
