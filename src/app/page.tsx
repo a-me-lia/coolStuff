@@ -57,6 +57,9 @@ export default function Page() {
             between += 40;
           }
         }
+
+
+        
         between -= 44;
 
         setBarWidth(between);
@@ -113,11 +116,6 @@ export default function Page() {
   //     [ProcessAnimationBar, elements, scroll, scrolling],
   //   );
 
-  //TODO:
-  //set scrolling to true for duration of the autoscroll so that the nav cannot be triggered in between
-  //implement checking of scrolling var before function call in each element below
-
-  
 
 
 
@@ -142,7 +140,6 @@ export default function Page() {
                   duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
-                  spyThrottle={500}
                   className="pr-10"
                   onClick={() => ProcessAnimationBarWithLockout("0")}
 
@@ -182,10 +179,10 @@ export default function Page() {
                   duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
-                  className="pr-10"
+                  className=" pr-10 text-right"
                   onClick={() => ProcessAnimationBarWithLockout("3")}
                 >
-                  <p id="3">resumé</p>
+                  <p  id="3" className=" w-min">resumé</p>
                 </Linc>
                 <Linc
                   to="work"
@@ -195,10 +192,10 @@ export default function Page() {
                   duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
-                  className="w-full text-right"
+                  className="w-full"
                   onClick={() => ProcessAnimationBarWithLockout("4")}
                 >
-                  <p id="4">work with me</p>
+                  <p id="4" className="text-right">work&nbsp;with&nbsp;me</p>
                 </Linc>
               </div>
               <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
