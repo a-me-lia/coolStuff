@@ -1,15 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as Ascroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
 
 export default function Navbar() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -67,20 +58,20 @@ export default function Navbar() {
     [selectedTab],
   );
 
-  useEffect(
-    function () {
-      //console.log(scroll)
-      //console.log(projects);
-      for (let i = elements.length - 1; i >= 0; i--) {
-        if (elements[i] < 500) {
-          ProcessAnimationBar(i.toString());
-          return;
-        }
-        ProcessAnimationBar("0");
-      }
-    },
-    [ProcessAnimationBar, elements, scroll],
-  );
+//   useEffect(
+//     function () {
+//       //console.log(scroll)
+//       //console.log(projects);
+//       for (let i = elements.length - 1; i >= 0; i--) {
+//         if (elements[i] < 500) {
+//           ProcessAnimationBar(i.toString());
+//           return;
+//         }
+//         ProcessAnimationBar("0");
+//       }
+//     },
+//     [ProcessAnimationBar, elements, scroll],
+//   );
 
   return (
     <nav>

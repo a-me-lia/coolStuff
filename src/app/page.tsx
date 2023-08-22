@@ -1,15 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/navbar";
-import {
-  Link as Linc,
-  Button,
-  Element,
-  Events,
-  animateScroll as Ascroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+
 
 import Link from "next/link";
 
@@ -79,39 +71,39 @@ export default function Page() {
     },
     [scrolling, selectedTab],
   );
-  //Animation bar function called within the element self detector
-  //this sets scrolling stateful value to true for the duration of the scroller, make make sure
-  //it doesnt not jump areound mid transition.
+//   //Animation bar function called within the element self detector
+//   //this sets scrolling stateful value to true for the duration of the scroller, make make sure
+//   //it doesnt not jump areound mid transition.
 
-  //CALLED IN THE ON CLICK OF THE NAV!!!
-  const ProcessAnimationBarWithLockout = (toTab: string) => {
-    if (scrolling) {
-      return;
-    }
-    ProcessAnimationBar(toTab);
-    setScrolling(true);
-    setTimeout(() => {
-      setScrolling(false);
-    }, duration);
-  };
+//   //CALLED IN THE ON CLICK OF THE NAV!!!
+//   const ProcessAnimationBarWithLockout = (toTab: string) => {
+//     if (scrolling) {
+//       return;
+//     }
+//     ProcessAnimationBar(toTab);
+//     setScrolling(true);
+//     setTimeout(() => {
+//       setScrolling(false);
+//     }, duration);
+//   };
 
-  //this delays invoking ProcessAnimationBar so that in case the user scrolls fast,
-  //the function wont get called a lot
+//   //this delays invoking ProcessAnimationBar so that in case the user scrolls fast,
+//   //the function wont get called a lot
 
-  //Called in each el statement of the silly containers
-  //idk if i should use this
-  const ProcessAnimationBarWithDelayedCheck = (
-    toTab: string,
-    element: Element,
-  ) => {
-    if (scrolling) {
-      return;
-    }
-    setScrolling(true);
-    setTimeout(() => {
-      setScrolling(false);
-    }, 2000);
-  };
+//   //Called in each el statement of the silly containers
+//   //idk if i should use this
+//   const ProcessAnimationBarWithDelayedCheck = (
+//     toTab: string,
+//     element: Element,
+//   ) => {
+//     if (scrolling) {
+//       return;
+//     }
+//     setScrolling(true);
+//     setTimeout(() => {
+//       setScrolling(false);
+//     }, 2000);
+//   };
 
   //   useEffect(
   //     function () {
@@ -151,91 +143,9 @@ export default function Page() {
     <main className="min-h-screen bg-white">
       <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
         {" "}
-        <nav>
-          <div className="flex flex-row w-full md:mx-auto md:w-[742px] bg-white items-baseline justify-between overflow-x-hidden ">
-            <div className="flex flex-col font-mono text-[16px] w-full ">
-              <div className="flex flex-row items-baseline">
-                <Linc
-                  to="home"
-                  spy={true}
-                  smooth={true}
-                  hashSpy={true}
-                  offset={offset}
-                  duration={duration}
-                  isDynamic={true}
-                  ignoreCancelEvents={true}
-                  className="pr-10"
-                  onClick={() => ProcessAnimationBarWithLockout("0")}
-                >
-                  <p id="0">home</p>
-                </Linc>
-                <Linc
-                  to="blog"
-                  spy={true}
-                  smooth={true}
-                  offset={offset}
-                  duration={duration}
-                  isDynamic={true}
-                  ignoreCancelEvents={true}
-                  className="pr-10"
-                  onClick={() => ProcessAnimationBarWithLockout("1")}
-                >
-                  <p id="1">blog</p>
-                </Linc>
-                <Linc
-                  to="guestbook"
-                  spy={true}
-                  smooth={true}
-                  offset={offset}
-                  isDynamic={true}
-                  ignoreCancelEvents={true}
-                  className="pr-10"
-                  onClick={() => ProcessAnimationBarWithLockout("2")}
-                >
-                  <p id="2">guestbook</p>
-                </Linc>
-                <Linc
-                  to="resumé"
-                  spy={true}
-                  smooth={true}
-                  offset={offset}
-                  duration={duration}
-                  isDynamic={true}
-                  ignoreCancelEvents={true}
-                  className=" pr-10 text-right"
-                  onClick={() => ProcessAnimationBarWithLockout("3")}
-                >
-                  <p id="3" className=" w-min">
-                    resumé
-                  </p>
-                </Linc>
-                <Linc
-                  to="work"
-                  spy={true}
-                  smooth={true}
-                  offset={offset}
-                  duration={duration}
-                  isDynamic={true}
-                  ignoreCancelEvents={true}
-                  className="w-full"
-                  onClick={() => ProcessAnimationBarWithLockout("4")}
-                >
-                  <p id="4" className="text-right">
-                    work&nbsp;with&nbsp;me
-                  </p>
-                </Linc>
-              </div>
-              <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
-              <div
-                style={{
-                  width: barWidth + "px",
-                  transform: `translate(${barTranslate}px, -2px)`,
-                }}
-                className={`bg-black transition-all duration-500  h-[3px]`}
-              ></div>
-            </div>
-          </div>
-        </nav>
+        <div className="md:mx-auto md:w-[742px]">
+        <Navbar></Navbar>
+        </div>
       </div>
 
       <div
@@ -251,7 +161,8 @@ export default function Page() {
             setElements(temp);
             // console.log(elements.toString());
             if (elements[0] < 500 && elements[1] >= 500) {
-              ProcessAnimationBar("0");
+              ProcessAnimationBar("0")
+
             }
           }}
           id="home"
