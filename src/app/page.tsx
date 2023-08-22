@@ -19,7 +19,7 @@ export default function Page() {
   const [barTranslate, setBarTranslate] = useState<number>(0);
 
   const [scroll, setScroll] = useState(0);
-  const [scrolling, setScrolling] = useState(0);
+  const [scrolling, setScrolling] = useState(false);
 
   const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);
 
@@ -37,6 +37,7 @@ export default function Page() {
 
   const ProcessAnimationBar = useCallback(
     (toTab: string) => {
+        if(scrolling){return}
       if (toTab != selectedTab.toString()) {
         let before = 0;
         let between = 0;
@@ -69,8 +70,17 @@ export default function Page() {
         setSelectedTab(Number(toTab));
       }
     },
-    [selectedTab],
+    [scrolling, selectedTab],
   );
+
+  const ProcessAnimationBarWithLockout = (toTab:string) =>{
+    if(scrolling){return}
+    ProcessAnimationBar(toTab)
+    setScrolling(true)
+    setTimeout(()=>{
+        setScrolling(false)
+    },duration)
+  }
 
   //   useEffect(
   //     function () {
@@ -107,6 +117,12 @@ export default function Page() {
   //set scrolling to true for duration of the autoscroll so that the nav cannot be triggered in between
   //implement checking of scrolling var before function call in each element below
 
+  
+
+
+
+
+  const duration = 1400;
   const offset = -120;
 
   return (
@@ -123,13 +139,13 @@ export default function Page() {
                   smooth={true}
                   hashSpy={true}
                   offset={offset}
-                  duration={1000}
+                  duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
                   spyThrottle={500}
                   className="pr-10"
-                  onClick={() => ProcessAnimationBar("0")}
-                  onSelect={() => ProcessAnimationBar("0")}
+                  onClick={() => ProcessAnimationBarWithLockout("0")}
+
                 >
                   <p id="0">home</p>
                 </Linc>
@@ -138,12 +154,11 @@ export default function Page() {
                   spy={true}
                   smooth={true}
                   offset={offset}
-                  duration={1000}
+                  duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
                   className="pr-10"
-                  onClick={() => ProcessAnimationBar("1")}
-                  onSelect={() => ProcessAnimationBar("1")}
+                  onClick={() => ProcessAnimationBarWithLockout("1")}
                 >
                   <p id="1">blog</p>
                 </Linc>
@@ -155,8 +170,7 @@ export default function Page() {
                   isDynamic={true}
                   ignoreCancelEvents={true}
                   className="pr-10"
-                  onClick={() => ProcessAnimationBar("2")}
-                  onSelect={() => ProcessAnimationBar("2")}
+                  onClick={() => ProcessAnimationBarWithLockout("2")}
                 >
                   <p id="2">guestbook</p>
                 </Linc>
@@ -165,12 +179,11 @@ export default function Page() {
                   spy={true}
                   smooth={true}
                   offset={offset}
-                  duration={1000}
+                  duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
                   className="pr-10"
-                  onClick={() => ProcessAnimationBar("3")}
-                  onSelect={() => ProcessAnimationBar("3")}
+                  onClick={() => ProcessAnimationBarWithLockout("3")}
                 >
                   <p id="3">resumé</p>
                 </Linc>
@@ -179,12 +192,11 @@ export default function Page() {
                   spy={true}
                   smooth={true}
                   offset={offset}
-                  duration={1000}
+                  duration={duration}
                   isDynamic={true}
                   ignoreCancelEvents={true}
                   className="w-full text-right"
-                  onClick={() => ProcessAnimationBar("4")}
-                  onSelect={() => ProcessAnimationBar("4")}
+                  onClick={() => ProcessAnimationBarWithLockout("4")}
                 >
                   <p id="4">work with me</p>
                 </Linc>
