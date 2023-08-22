@@ -37,7 +37,9 @@ export default function Page() {
 
   const ProcessAnimationBar = useCallback(
     (toTab: string) => {
-        if(scrolling){return}
+      if (scrolling) {
+        return;
+      }
       if (toTab != selectedTab.toString()) {
         let before = 0;
         let between = 0;
@@ -58,8 +60,6 @@ export default function Page() {
           }
         }
 
-
-        
         between -= 44;
 
         setBarWidth(between);
@@ -76,14 +76,16 @@ export default function Page() {
     [scrolling, selectedTab],
   );
 
-  const ProcessAnimationBarWithLockout = (toTab:string) =>{
-    if(scrolling){return}
-    ProcessAnimationBar(toTab)
-    setScrolling(true)
-    setTimeout(()=>{
-        setScrolling(false)
-    },duration)
-  }
+  const ProcessAnimationBarWithLockout = (toTab: string) => {
+    if (scrolling) {
+      return;
+    }
+    ProcessAnimationBar(toTab);
+    setScrolling(true);
+    setTimeout(() => {
+      setScrolling(false);
+    }, duration);
+  };
 
   //   useEffect(
   //     function () {
@@ -116,20 +118,16 @@ export default function Page() {
   //     [ProcessAnimationBar, elements, scroll, scrolling],
   //   );
 
-
-
-
-
   const duration = 1400;
   const offset = -120;
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="md:mx-auto md:w-[742px] h-24 flex flex-col justify-end fixed right-0 top-0 left-0 z-50 bg-white">
+      <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
         {" "}
         <nav>
-          <div className="flex flex-row w-full  items-baseline justify-between overflow-x-hidden ">
-            <div className="flex flex-col font-mono text-[16px] w-full bg-white">
+          <div className="flex flex-row w-full md:mx-auto md:w-[742px] bg-white items-baseline justify-between overflow-x-hidden ">
+            <div className="flex flex-col font-mono text-[16px] w-full ">
               <div className="flex flex-row items-baseline">
                 <Linc
                   to="home"
@@ -142,7 +140,6 @@ export default function Page() {
                   ignoreCancelEvents={true}
                   className="pr-10"
                   onClick={() => ProcessAnimationBarWithLockout("0")}
-
                 >
                   <p id="0">home</p>
                 </Linc>
@@ -182,7 +179,9 @@ export default function Page() {
                   className=" pr-10 text-right"
                   onClick={() => ProcessAnimationBarWithLockout("3")}
                 >
-                  <p  id="3" className=" w-min">resumé</p>
+                  <p id="3" className=" w-min">
+                    resumé
+                  </p>
                 </Linc>
                 <Linc
                   to="work"
@@ -195,7 +194,9 @@ export default function Page() {
                   className="w-full"
                   onClick={() => ProcessAnimationBarWithLockout("4")}
                 >
-                  <p id="4" className="text-right">work&nbsp;with&nbsp;me</p>
+                  <p id="4" className="text-right">
+                    work&nbsp;with&nbsp;me
+                  </p>
                 </Linc>
               </div>
               <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
@@ -222,8 +223,10 @@ export default function Page() {
             let temp = elements;
             temp[0] = el.getBoundingClientRect().top;
             setElements(temp);
-            console.log(elements.toString())
-            if(elements[0] < 500 && elements[1] >= 500){ProcessAnimationBar('0')}
+            console.log(elements.toString());
+            if (elements[0] < 500 && elements[1] >= 500) {
+              ProcessAnimationBar("0");
+            }
           }}
           id="home"
         >
@@ -236,7 +239,9 @@ export default function Page() {
             let temp = elements;
             temp[1] = el.getBoundingClientRect().top;
             setElements(temp);
-            if(elements[1] < 500 && elements[2] >= 500){ProcessAnimationBar('1')}
+            if (elements[1] < 500 && elements[2] >= 500) {
+              ProcessAnimationBar("1");
+            }
           }}
           id="blog"
         >
@@ -249,7 +254,9 @@ export default function Page() {
             let temp = elements;
             temp[2] = el.getBoundingClientRect().top;
             setElements(temp);
-            if(elements[2] < 500 && elements[3] >= 500){ProcessAnimationBar('2')}
+            if (elements[2] < 500 && elements[3] >= 500) {
+              ProcessAnimationBar("2");
+            }
           }}
           id="guestbook"
         >
@@ -262,7 +269,9 @@ export default function Page() {
             let temp = elements;
             temp[3] = el.getBoundingClientRect().top;
             setElements(temp);
-            if(elements[3] < 500 && elements[4] >= 500){ProcessAnimationBar('3')}
+            if (elements[3] < 500 && elements[4] >= 500) {
+              ProcessAnimationBar("3");
+            }
           }}
           id="resumé"
         >
@@ -275,7 +284,9 @@ export default function Page() {
             let temp = elements;
             temp[4] = el.getBoundingClientRect().top;
             setElements(temp);
-            if(elements[4] < 500 ){ProcessAnimationBar('4')}
+            if (elements[4] < 500) {
+              ProcessAnimationBar("4");
+            }
           }}
           id="work"
         >
