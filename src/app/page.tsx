@@ -70,8 +70,8 @@ export default function Page() {
           if (true) setBarTranslate(before - 2);
         }, 700);
 
-        console.log(between)
-        console.log(before)
+        console.log(between);
+        console.log(before);
         //0,0     112,78       177,175        180, 282       455,380
 
         setSelectedTab(Number(toTab));
@@ -79,7 +79,11 @@ export default function Page() {
     },
     [scrolling, selectedTab],
   );
+  //Animation bar function called within the element self detector
+  //this sets scrolling stateful value to true for the duration of the scroller, make make sure
+  //it doesnt not jump areound mid transition.
 
+  //CALLED IN THE ON CLICK OF THE NAV!!!
   const ProcessAnimationBarWithLockout = (toTab: string) => {
     if (scrolling) {
       return;
@@ -90,7 +94,15 @@ export default function Page() {
       setScrolling(false);
     }, duration);
   };
-  const ProcessAnimationBarWithDelayedCheck = (toTab: string) => {
+
+  //this delays invoking ProcessAnimationBar so that in case the user scrolls fast,
+  //the function wont get called a lot
+
+  //Called in each el statement of the silly containers
+  const ProcessAnimationBarWithDelayedCheck = (
+    toTab: string,
+    element: Element,
+  ) => {
     if (scrolling) {
       return;
     }
