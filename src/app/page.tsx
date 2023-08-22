@@ -99,6 +99,7 @@ export default function Page() {
   //the function wont get called a lot
 
   //Called in each el statement of the silly containers
+  //idk if i should use this
   const ProcessAnimationBarWithDelayedCheck = (
     toTab: string,
     element: Element,
@@ -109,7 +110,7 @@ export default function Page() {
     setScrolling(true);
     setTimeout(() => {
       setScrolling(false);
-    }, duration);
+    }, 2000);
   };
 
   //   useEffect(
