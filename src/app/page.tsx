@@ -70,6 +70,10 @@ export default function Page() {
           if (true) setBarTranslate(before - 2);
         }, 700);
 
+        console.log(between)
+        console.log(before)
+        //0,0     112,78       177,175        180, 282       455,380
+
         setSelectedTab(Number(toTab));
       }
     },
@@ -81,6 +85,15 @@ export default function Page() {
       return;
     }
     ProcessAnimationBar(toTab);
+    setScrolling(true);
+    setTimeout(() => {
+      setScrolling(false);
+    }, duration);
+  };
+  const ProcessAnimationBarWithDelayedCheck = (toTab: string) => {
+    if (scrolling) {
+      return;
+    }
     setScrolling(true);
     setTimeout(() => {
       setScrolling(false);
@@ -223,7 +236,7 @@ export default function Page() {
             let temp = elements;
             temp[0] = el.getBoundingClientRect().top;
             setElements(temp);
-            console.log(elements.toString());
+            // console.log(elements.toString());
             if (elements[0] < 500 && elements[1] >= 500) {
               ProcessAnimationBar("0");
             }
