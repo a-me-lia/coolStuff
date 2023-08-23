@@ -75,7 +75,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="flex flex-row w-full bg-white items-baseline justify-between ">
+      <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
         <div className="flex flex-col font-mono text-[16px] w-full bg-white">
           <ul className="flex flex-row items-baseline">
             <li className="pr-10" onClick={() => ProcessAnimationBar("0")}>
