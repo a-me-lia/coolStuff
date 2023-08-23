@@ -2,8 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 
-import StupidWrapper from "./stupidWrapper";
-
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const plexSans = IBM_Plex_Mono({
@@ -31,7 +29,7 @@ export default function RootLayout({
         className={`${inter.variable} font-sans  ${plexSans.variable} font-ibm`}
       >
         
-        <StupidWrapper>{children}</StupidWrapper>
+        {children}
       </body>
     </html>
   );
