@@ -96,26 +96,8 @@ export default function Page() {
         </div>
         <div className="fancy duration-1000">
         <Code language="javascript" code=
-        {`const [scroll, setScroll] = useState(0);
-          const [height, setHeight] = useState(0);
-        
-          useEffect(function () {
-            if (typeof window !== "undefined") setHeight(window.innerHeight);
-          }, []);
-        
-          if (typeof window !== "undefined") {
-            window.addEventListener("scroll", (event) => {
-              let scroll = scrollY;
-              //console.log(scroll)
-              setScroll(scroll);
-            });
-            window.addEventListener("resize", (event) => {
-              let height = innerHeight;
-              //console.log(scroll)
-              setHeight(height);
-            });
-          }
-          `}></Code>
+        "const bingChilling = 69;"
+          ></Code>
         </div>
 
         <div className="fancy transition-opacity duration-1000">
