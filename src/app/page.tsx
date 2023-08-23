@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 
-
 import Link from "next/link";
 
 export default function Page() {
@@ -71,39 +70,39 @@ export default function Page() {
     },
     [scrolling, selectedTab],
   );
-//   //Animation bar function called within the element self detector
-//   //this sets scrolling stateful value to true for the duration of the scroller, make make sure
-//   //it doesnt not jump areound mid transition.
+  //   //Animation bar function called within the element self detector
+  //   //this sets scrolling stateful value to true for the duration of the scroller, make make sure
+  //   //it doesnt not jump areound mid transition.
 
-//   //CALLED IN THE ON CLICK OF THE NAV!!!
-//   const ProcessAnimationBarWithLockout = (toTab: string) => {
-//     if (scrolling) {
-//       return;
-//     }
-//     ProcessAnimationBar(toTab);
-//     setScrolling(true);
-//     setTimeout(() => {
-//       setScrolling(false);
-//     }, duration);
-//   };
+  //   //CALLED IN THE ON CLICK OF THE NAV!!!
+  //   const ProcessAnimationBarWithLockout = (toTab: string) => {
+  //     if (scrolling) {
+  //       return;
+  //     }
+  //     ProcessAnimationBar(toTab);
+  //     setScrolling(true);
+  //     setTimeout(() => {
+  //       setScrolling(false);
+  //     }, duration);
+  //   };
 
-//   //this delays invoking ProcessAnimationBar so that in case the user scrolls fast,
-//   //the function wont get called a lot
+  //   //this delays invoking ProcessAnimationBar so that in case the user scrolls fast,
+  //   //the function wont get called a lot
 
-//   //Called in each el statement of the silly containers
-//   //idk if i should use this
-//   const ProcessAnimationBarWithDelayedCheck = (
-//     toTab: string,
-//     element: Element,
-//   ) => {
-//     if (scrolling) {
-//       return;
-//     }
-//     setScrolling(true);
-//     setTimeout(() => {
-//       setScrolling(false);
-//     }, 2000);
-//   };
+  //   //Called in each el statement of the silly containers
+  //   //idk if i should use this
+  //   const ProcessAnimationBarWithDelayedCheck = (
+  //     toTab: string,
+  //     element: Element,
+  //   ) => {
+  //     if (scrolling) {
+  //       return;
+  //     }
+  //     setScrolling(true);
+  //     setTimeout(() => {
+  //       setScrolling(false);
+  //     }, 2000);
+  //   };
 
   //   useEffect(
   //     function () {
@@ -144,7 +143,7 @@ export default function Page() {
       <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
         {" "}
         <div className="md:mx-auto md:w-[742px]">
-        <Navbar></Navbar>
+          <Navbar></Navbar>
         </div>
       </div>
 
@@ -161,8 +160,7 @@ export default function Page() {
             setElements(temp);
             // console.log(elements.toString());
             if (elements[0] < 500 && elements[1] >= 500) {
-              ProcessAnimationBar("0")
-
+              ProcessAnimationBar("0");
             }
           }}
           id="home"
@@ -212,22 +210,7 @@ export default function Page() {
           }}
           id="resumé"
         >
-          resumé
-        </div>
-        <div
-          className="w-full h-[800px] bg-green-300"
-          ref={(el) => {
-            if (!el) return;
-            let temp = elements;
-            temp[4] = el.getBoundingClientRect().top;
-            setElements(temp);
-            if (elements[4] < 500) {
-              ProcessAnimationBar("4");
-            }
-          }}
-          id="work"
-        >
-          work with me
+          contact
         </div>
       </div>
     </main>

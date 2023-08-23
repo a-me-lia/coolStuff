@@ -58,20 +58,20 @@ export default function Navbar() {
     [selectedTab],
   );
 
-//   useEffect(
-//     function () {
-//       //console.log(scroll)
-//       //console.log(projects);
-//       for (let i = elements.length - 1; i >= 0; i--) {
-//         if (elements[i] < 500) {
-//           ProcessAnimationBar(i.toString());
-//           return;
-//         }
-//         ProcessAnimationBar("0");
-//       }
-//     },
-//     [ProcessAnimationBar, elements, scroll],
-//   );
+  //   useEffect(
+  //     function () {
+  //       //console.log(scroll)
+  //       //console.log(projects);
+  //       for (let i = elements.length - 1; i >= 0; i--) {
+  //         if (elements[i] < 500) {
+  //           ProcessAnimationBar(i.toString());
+  //           return;
+  //         }
+  //         ProcessAnimationBar("0");
+  //       }
+  //     },
+  //     [ProcessAnimationBar, elements, scroll],
+  //   );
 
   return (
     <nav>
@@ -88,13 +88,7 @@ export default function Navbar() {
               <p id="2">guestbook</p>
             </li>
             <li className="pr-10" onClick={() => ProcessAnimationBar("3")}>
-              <p id="3">resumé</p>
-            </li>
-            <li
-              className="w-full text-right"
-              onClick={() => ProcessAnimationBar("4")}
-            >
-              <p id="4">work with me</p>
+              <p id="3">contact</p>
             </li>
           </ul>
           <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
@@ -103,7 +97,7 @@ export default function Navbar() {
               width: barWidth + "px",
               transform: `translate(${barTranslate}px, -2px)`,
             }}
-            className={`bg-black transition-all duration-500  h-[3px]`}
+            className={`bg-[#888] transition-all duration-500  h-[1px]`}
           ></div>
         </div>
       </div>
