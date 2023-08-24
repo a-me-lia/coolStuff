@@ -4,6 +4,12 @@ import Navbar from "./components/navbar";
 
 import Link from "next/link";
 
+import Home from "./landing/home";
+import Blog from "./landing/blog";
+import Guestbook from "./landing/guestbook";
+import Contact from "./landing/contact";
+
+
 export default function Page() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);

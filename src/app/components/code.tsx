@@ -1,5 +1,11 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { shadesOfPurple } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+
+// Using ES6 import syntax
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+// Then register the languages you need
+hljs.registerLanguage('javascript', javascript);
 
 
 interface props{
@@ -8,9 +14,14 @@ interface props{
 }
 
 export default function Code(props: props){
+    const highlightedCode = hljs.highlight(
+        'const [bingChilling, setBingChilling] = useState(0)',
+        { language: props.language }
+      ).value
 
     return(
-        <SyntaxHighlighter showLineNumbers wrapLongLines langauge="javascript" style={shadesOfPurple}>{props.code}</SyntaxHighlighter>
-
+        <div className='w-full rounded-2xl whitespace-pre'>
+            {highlightedCode}
+        </div>
     )
 }
