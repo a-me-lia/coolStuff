@@ -1,6 +1,6 @@
 
 
-
+// Using ES6 import syntax
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 
@@ -15,8 +15,8 @@ interface props{
 
 export default function Code(props: props){
     const highlightedCode = hljs.highlight(
-        props.code,
-        { language: "javascript" }
+        'const [bingChilling, setBingChilling] = useState(0)',
+        { language: props.language }
       ).value
 
     return(
