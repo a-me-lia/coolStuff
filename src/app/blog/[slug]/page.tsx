@@ -7,8 +7,8 @@ import ViewCounter from '../view-counter';
 import { getViewsCount } from '../../../../lib/metrics';
 
 export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+  params
+}:{params:any}): Promise<Metadata | undefined> {
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -22,8 +22,8 @@ export async function generateMetadata({
     slug,
   } = post;
   const ogImage = image
-    ? `https://leerob.io${image}`
-    : `https://leerob.io/og?title=${title}`;
+    ? `https://homescree.net${image}`
+    : `https://homescree.net/og?title=${title}`;
 
   return {
     title,
@@ -33,7 +33,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://leerob.io/blog/${slug}`,
+      url: `https://homescree.net/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -78,7 +78,7 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
-export default async function Blog({ params }) {
+export default async function Blog({ params }:{params:any}) {
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -90,7 +90,7 @@ export default async function Blog({ params }) {
   ]);
 
   return (
-    <section>
+    <section className='w-3/4 mx-auto'>
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>

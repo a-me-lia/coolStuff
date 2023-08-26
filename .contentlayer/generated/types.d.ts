@@ -20,7 +20,6 @@ export type Blog = {
   /** MDX file body */
   body: MDX
   slug: string
-  tweetIds: array
   structuredData: object
 }  
 

@@ -6,7 +6,7 @@ import { getViewsCount } from '../../../lib/metrics';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Read my thoughts on software development, design, and more.',
+  description: 'Bing Chilling',
 };
 
 export default async function BlogPage() {
