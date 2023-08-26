@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-const CustomLink = (props) => {
+const CustomLink = (props:any) => {
   const href = props.href;
 
   if (href.startsWith('/')) {
@@ -21,11 +21,11 @@ const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-function RoundedImage(props) {
+function RoundedImage(props:any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
-function Callout(props) {
+function Callout(props:any) {
   return (
     <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
       <div className="flex items-center w-4 mr-4">{props.emoji}</div>
@@ -34,12 +34,12 @@ function Callout(props) {
   );
 }
 
-function ProsCard({ title, pros }) {
+function ProsCard({ title, pros }:{title:any, pros:any}) {
   return (
     <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
       <span>{`You might use ${title} if...`}</span>
       <div className="mt-4">
-        {pros.map((pro) => (
+        {pros.map((pro:any) => (
           <div key={pro} className="flex font-medium items-baseline mb-2">
             <div className="h-4 w-4 mr-2">
               <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
@@ -63,12 +63,12 @@ function ProsCard({ title, pros }) {
   );
 }
 
-function ConsCard({ title, cons }) {
+function ConsCard({ title, cons }:{title:any, cons:any}) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
       <span>{`You might not use ${title} if...`}</span>
       <div className="mt-4">
-        {cons.map((con) => (
+        {cons.map((con:any) => (
           <div key={con} className="flex font-medium items-baseline mb-2">
             <div className="h-4 w-4 mr-2">
               <svg
@@ -98,7 +98,6 @@ const components = {
 
 interface MdxProps {
   code: string;
-  tweets: Record<string, any>;
 }
 
 export function Mdx({ code }: MdxProps) {

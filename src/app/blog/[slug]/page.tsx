@@ -103,7 +103,7 @@ export default async function Blog({ params }) {
         </p>
         <ViewCounter allViews={allViews} slug={post.slug} trackView />
       </div>
-      <Mdx code={post.body.code} />
+      <Mdx code={post.body.code}/>
     </section>
   );
 }
