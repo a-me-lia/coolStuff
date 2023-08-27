@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require('next-contentlayer')
 
-const nextConfig = {  experimental: {
+const nextConfig = {  
+    env: {  NEXT_PUBLIC_DATABASE_URL: process.env.NEXT_PUBLIC_DATABASE_URL  },
+    experimental: {
     serverActions: true,
   },
   headers() {
