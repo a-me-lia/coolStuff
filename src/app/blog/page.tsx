@@ -13,7 +13,7 @@ export default async function BlogPage() {
   const allViews = await getViewsCount();
 
   return (
-    <section>
+    <section className='w-2/3 mx-auto mt-36'>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">read my blog</h1>
       {allBlogs
         .sort((a, b) => {
