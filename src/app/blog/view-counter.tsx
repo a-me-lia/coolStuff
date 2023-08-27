@@ -22,7 +22,7 @@ export default function ViewCounter({
     if (trackView) {
       increment(slug);
     }
-  }, []);
+  }, [slug, trackView]);
 
   return (
     <p className="text-neutral-600 dark:text-neutral-400">
