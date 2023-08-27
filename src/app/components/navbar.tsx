@@ -1,8 +1,34 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+
+const navItems = {
+  '/': {
+    name: 'home',
+    id: 0
+  },
+  '/blog': {
+    name: 'blog',
+    id: 1
+  },
+  '/guestbook': {
+    name: 'guestbook',
+    id: 2
+  },
+  '/contact': {
+    name: 'contact',
+    id: 3
+  }
+};
 
 export default function Navbar() {
+  let pathname = usePathname() || '/';
+  if (pathname.includes('/blog/')) {
+    pathname = '/blog';
+  }
+  
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);
   const [barTranslate, setBarTranslate] = useState<number>(0);
@@ -74,6 +100,9 @@ export default function Navbar() {
   //   );
 
   return (
+    <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
+    {" "}
+    <div className="md:mx-auto md:w-[742px]">
     <nav>
       <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
         <div className="flex flex-col font-mono text-[16px] w-full bg-white">
@@ -102,5 +131,7 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+    </div>
+      </div>
   );
 }
