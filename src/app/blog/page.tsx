@@ -5,7 +5,7 @@ import ViewCounter from './view-counter';
 import { getViewsCount } from '../../../lib/metrics';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog | Matthew Guo',
   description: 'Bing Chilling',
 };
 
@@ -13,7 +13,7 @@ export default async function BlogPage() {
   const allViews = await getViewsCount();
 
   return (
-    <section className='w-2/3 mx-auto mt-36'>
+    <section className='md:mx-auto md:w-[742px] mt-32'>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">read my blog</h1>
       {allBlogs
         .sort((a, b) => {

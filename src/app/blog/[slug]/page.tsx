@@ -90,7 +90,7 @@ export default async function Blog({ params }:{params:any}) {
   ]);
 
   return (
-    <section className='w-3/4 mx-auto mt-36'>
+    <section className='md:mx-auto md:w-[742px] mt-32'>
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>

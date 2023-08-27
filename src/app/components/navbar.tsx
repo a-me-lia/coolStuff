@@ -37,9 +37,8 @@ export default function Navbar() {
 
   const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);
 
-  useEffect(function () {
-    setBarWidth(document.getElementById("0")?.clientWidth!);
-  }, []);
+
+
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", (event) => {
@@ -77,12 +76,25 @@ export default function Navbar() {
       setTimeout(() => {
         setBarWidth(document.getElementById(toTab)?.offsetWidth! + 4);
         if (true) setBarTranslate(before - 2);
-      }, 700);
+      }, 500);
 
       setSelectedTab(Number(toTab));
     },
     [selectedTab],
   );
+
+    //TODO: manually specify translate and width on render, and only add the transition property on the element after wards.
+  useEffect(function () {
+    {Object.entries(navItems).map(([path, { name, id }]) => {
+      const isActive = path === pathname;
+    return(
+        isActive ? ProcessAnimationBar((id)) : null
+    );
+  })}
+  }, [ProcessAnimationBar, pathname]);
+
+
+
 
   //   useEffect(
   //     function () {
