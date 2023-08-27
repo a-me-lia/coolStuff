@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 
 import Link from "next/link";
 
-import Guestbook from "./guestbook/guestbook";
-import Contact from "./contact/contact";
+import Guestbook from "./guestbook/page";
+import Contact from "./contact/page";
 
 
 export default function Page() {

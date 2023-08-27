@@ -1,6 +1,6 @@
 
 
-export default function Guestbook(){
+export default function Page(){
     return(
         <div></div>
     )}

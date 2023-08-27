@@ -7,19 +7,19 @@ import Link from 'next/link';
 const navItems = {
   '/': {
     name: 'home',
-    id: 0
+    id: "0"
   },
   '/blog': {
     name: 'blog',
-    id: 1
+    id: "1"
   },
   '/guestbook': {
     name: 'guestbook',
-    id: 2
+    id: "2"
   },
   '/contact': {
     name: 'contact',
-    id: 3
+    id: "3"
   }
 };
 
@@ -106,27 +106,21 @@ export default function Navbar() {
     <nav>
       <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
         <div className="flex flex-col font-mono text-[16px] w-full bg-white">
-          <ul className="flex flex-row items-baseline">
-            <li className="pr-10" onClick={() => ProcessAnimationBar("0")}>
-              <p id="0">home</p>
-            </li>
-            <li className="pr-10" onClick={() => ProcessAnimationBar("1")}>
-              <p id="1">blog</p>
-            </li>
-            <li className="pr-10" onClick={() => ProcessAnimationBar("2")}>
-              <p id="2">guestbook</p>
-            </li>
-            <li className="pr-10" onClick={() => ProcessAnimationBar("3")}>
-              <p id="3">contact</p>
-            </li>
-          </ul>
+          <div className="flex flex-row items-baseline">
+            {Object.entries(navItems).map(([path, { name, id }]) => {
+                const isActive = path === pathname;
+              return(
+                <Link key={path} href={path} onClick={()=>ProcessAnimationBar(id)} className={`pr-10 ${isActive ? 'text-neutral-900' : 'text-neutral-400' } transition-colors duration-1000`}><p id={id}>{name}</p></Link>
+              );
+            })}
+          </div>
           <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
           <div
             style={{
               width: barWidth + "px",
               transform: `translate(${barTranslate}px, -2px)`,
             }}
-            className={`bg-[#888] transition-all duration-500  h-[1px]`}
+            className={`bg-neutral-900 transition-all duration-500  h-[1px]`}
           ></div>
         </div>
       </div>

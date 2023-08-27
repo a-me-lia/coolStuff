@@ -1,6 +1,6 @@
 
 
-export default function Contact(){
+export default function Page(){
     return(
         <div></div>
     )}
