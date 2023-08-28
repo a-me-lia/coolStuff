@@ -15,6 +15,25 @@ const plexSans = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Matthew Guo",
   description: "冰淇淋",
+  openGraph: {
+    title: 'Matthew Guo',
+    description: '冰淇淋',
+    url: 'https://homescree.net',
+    siteName: 'Matthew Guo',
+    locale: 'en-US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

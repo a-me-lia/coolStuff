@@ -29,9 +29,6 @@ export default function Navbar() {
   if (pathname.includes('/blog/')) {
     pathname = '/blog';
   }
-
-
-  
   
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);
@@ -102,52 +99,6 @@ export default function Navbar() {
     });
   }
 
-
-  // const ProcessAnimationBar = useCallback(
-  //   (toTab: string) => {
-  //     let before = 0;
-  //     let between = 0;
-
-  //     for (let i = 0; i <= Number(toTab) - 1; i++) {
-  //       before += document.getElementById(i.toString())?.offsetWidth!;
-  //       before += 40;
-  //     }
-  //     if (selectedTab < Number(toTab)) {
-  //       for (let i = selectedTab; i <= Number(toTab); i++) {
-  //         between += document.getElementById(i.toString())?.offsetWidth!;
-  //         between += 40;
-  //       }
-  //     } else {
-  //       for (let i = selectedTab; i >= Number(toTab); i--) {
-  //         between += document.getElementById(i.toString())?.offsetWidth!;
-  //         between += 40;
-  //       }
-  //     }
-  //     between -= 44;
-
-  //     setBarWidth(between);
-  //     if (selectedTab > Number(toTab)) setBarTranslate(before + 2);
-
-  //     setTimeout(() => {
-  //       setBarWidth(document.getElementById(toTab)?.offsetWidth! + 4);
-  //       if (true) setBarTranslate(before - 2);
-  //     }, 600);
-
-  //     setSelectedTab(Number(toTab));
-
-  //   },
-  //   [selectedTab],
-  // );
-
-    //TODO: refaactor animation so that two states, before and current, 
-    //clicking sets current, and useeffect listens in on current to call animation appropirately
-    //selected will be initialized to reflect the currentpathname from a separate useffect
-
-
-
-
-
-  //   useEffect(
   //     function () {
   //       //console.log(scroll)
   //       //console.log(projects);
