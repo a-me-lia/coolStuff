@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { Mdx } from '@/app/components/mdx';
-import { allBlogs } from 'contentlayer/generated';
-import Balancer from 'react-wrap-balancer';
-import ViewCounter from '../view-counter';
-import { getViewsCount } from '../../../../lib/metrics';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Mdx } from "@/app/components/mdx";
+import { allBlogs } from "contentlayer/generated";
+import Balancer from "react-wrap-balancer";
+import ViewCounter from "../view-counter";
+import { getViewsCount } from "../../../../lib/metrics";
 
 export async function generateMetadata({
-  params
-}:{params:any}): Promise<Metadata | undefined> {
+  params,
+}: {
+  params: any;
+}): Promise<Metadata | undefined> {
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -31,7 +33,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: 'article',
+      type: "article",
       publishedTime,
       url: `https://homescree.net/blog/${slug}`,
       images: [
@@ -41,7 +43,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [ogImage],
@@ -57,7 +59,7 @@ function formatDate(date: string) {
   const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
   const daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  let formattedDate = '';
+  let formattedDate = "";
 
   if (yearsAgo > 0) {
     formattedDate = `${yearsAgo}y ago`;
@@ -66,31 +68,29 @@ function formatDate(date: string) {
   } else if (daysAgo > 0) {
     formattedDate = `${daysAgo}d ago`;
   } else {
-    formattedDate = 'Today';
+    formattedDate = "Today";
   }
 
-  const fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+  const fullDate = targetDate.toLocaleString("en-us", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 
   return `${fullDate} (${formattedDate})`;
 }
 
-export default async function Blog({ params }:{params:any}) {
+export default async function Blog({ params }: { params: any }) {
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
   }
 
-  const [allViews] = await Promise.all([
-    getViewsCount()
-  ]);
+  const [allViews] = await Promise.all([getViewsCount()]);
 
   return (
-    <section className='md:mx-auto md:w-[742px] mt-32'>
+    <section className="md:mx-auto md:w-[742px] mt-32">
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>
@@ -103,7 +103,7 @@ export default async function Blog({ params }:{params:any}) {
         </p>
         <ViewCounter allViews={allViews} slug={post.slug} trackView />
       </div>
-      <Mdx code={post.body.code}/>
+      <Mdx code={post.body.code} />
     </section>
   );
 }

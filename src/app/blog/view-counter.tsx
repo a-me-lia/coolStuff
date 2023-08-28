@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { increment } from '@/app/actions';
+import { useEffect } from "react";
+import { increment } from "@/app/actions";
 
 export default function ViewCounter({
   slug,

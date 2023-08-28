@@ -1,9 +1,8 @@
-import 'server-only';
+import "server-only";
 
-import { google } from 'googleapis';
-import { queryBuilder } from './planetscale';
-import { cache } from 'react';
-
+import { google } from "googleapis";
+import { queryBuilder } from "./planetscale";
+import { cache } from "react";
 
 export const getBlogViews = cache(async () => {
   if (!process.env.DATABASE_URL) {
@@ -11,13 +10,13 @@ export const getBlogViews = cache(async () => {
   }
 
   const data = await queryBuilder
-    .selectFrom('views')
-    .select(['count'])
+    .selectFrom("views")
+    .select(["count"])
     .execute();
 
   return data.reduce((acc, curr) => acc + Number(curr.count), 0);
 });
 
 export const getViewsCount = cache(async () => {
-  return queryBuilder.selectFrom('views').select(['slug', 'count']).execute();
+  return queryBuilder.selectFrom("views").select(["slug", "count"]).execute();
 });

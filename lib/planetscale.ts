@@ -1,6 +1,6 @@
 // import 'server-only' not working with API routes yet
-import { Generated, Kysely } from 'kysely';
-import { PlanetScaleDialect } from 'kysely-planetscale';
+import { Generated, Kysely } from "kysely";
+import { PlanetScaleDialect } from "kysely-planetscale";
 
 interface GuestbookTable {
   id: Generated<number>;

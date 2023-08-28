@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 
-
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const plexSans = IBM_Plex_Mono({
@@ -16,12 +15,12 @@ export const metadata: Metadata = {
   title: "Matthew Guo",
   description: "冰淇淋",
   openGraph: {
-    title: 'Matthew Guo',
-    description: '冰淇淋',
-    url: 'https://homescree.net',
-    siteName: 'Matthew Guo',
-    locale: 'en-US',
-    type: 'website',
+    title: "Matthew Guo",
+    description: "冰淇淋",
+    url: "https://homescree.net",
+    siteName: "Matthew Guo",
+    locale: "en-US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -29,9 +28,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
@@ -42,15 +41,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{scrollBehavior: "smooth" }}>
+    <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
         className={`${inter.variable} font-sans  ${plexSans.variable} font-ibm `}
       >
-        
-                  <Navbar></Navbar>
+        <Navbar></Navbar>
         {children}
       </body>
     </html>
