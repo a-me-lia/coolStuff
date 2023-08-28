@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { isTypeQueryNode } from "typescript";
 
 const navItems = {
   '/': {
@@ -28,14 +29,21 @@ export default function Navbar() {
   if (pathname.includes('/blog/')) {
     pathname = '/blog';
   }
+
+
+  
   
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);
   const [barTranslate, setBarTranslate] = useState<number>(0);
+  const [loaded, setLoaded] = useState(true);
 
   const [scroll, setScroll] = useState(0);
 
-  const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);
+  useEffect(()=>{
+    
+  })
+
 
 
 
@@ -76,22 +84,18 @@ export default function Navbar() {
       setTimeout(() => {
         setBarWidth(document.getElementById(toTab)?.offsetWidth! + 4);
         if (true) setBarTranslate(before - 2);
-      }, 500);
+      }, 600);
 
       setSelectedTab(Number(toTab));
+
     },
     [selectedTab],
   );
 
-    //TODO: manually specify translate and width on render, and only add the transition property on the element after wards.
-  useEffect(function () {
-    {Object.entries(navItems).map(([path, { name, id }]) => {
-      const isActive = path === pathname;
-    return(
-        isActive ? ProcessAnimationBar((id)) : null
-    );
-  })}
-  }, [ProcessAnimationBar, pathname]);
+    //TODO: refaactor animation so that two states, before and current, 
+    //clicking sets current, and useeffect listens in on current to call animation appropirately
+    //selected will be initialized to reflect the currentpathname from a separate useffect
+
 
 
 
@@ -132,7 +136,7 @@ export default function Navbar() {
               width: barWidth + "px",
               transform: `translate(${barTranslate}px, -2px)`,
             }}
-            className={`bg-neutral-900 transition-all duration-500  h-[1px]`}
+            className={`bg-neutral-900 h-[1px] ${loaded ? ' transition-all duration-500 ' : ''}`}
           ></div>
         </div>
       </div>
