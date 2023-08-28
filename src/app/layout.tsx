@@ -28,11 +28,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${inter.variable} font-sans  ${plexSans.variable} font-ibm`}
+        className={`${inter.variable} font-sans  ${plexSans.variable} font-ibm `}
       >
         
                   <Navbar></Navbar>
-        
         {children}
       </body>
     </html>
