@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { IBM_Plex_Sans, Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-const plexSans = IBM_Plex_Mono({
+const plexMono = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-ibm",
@@ -46,7 +46,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${inter.variable} font-sans  ${plexSans.variable} font-ibm `}
+        className={`${inter.variable} font-sans  ${plexMono.variable} font-ibm `}
       >
         <Navbar></Navbar>
         {children}

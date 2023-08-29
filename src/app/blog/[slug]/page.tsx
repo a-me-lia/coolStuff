@@ -94,7 +94,7 @@ export default async function Blog({ params }: { params: any }) {
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>
-      <h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
+      <h1 className="font-bold text-2xl max-w-[650px]">
         <Balancer>{post.title}</Balancer>
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
