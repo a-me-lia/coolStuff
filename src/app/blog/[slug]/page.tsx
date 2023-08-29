@@ -5,6 +5,7 @@ import { allBlogs } from "contentlayer/generated";
 import Balancer from "react-wrap-balancer";
 import ViewCounter from "../view-counter";
 import { getViewsCount } from "../../../../lib/metrics";
+import Tag from "../tag";
 
 export async function generateMetadata({
   params,
@@ -21,6 +22,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
+    tags,
     slug,
   } = post;
   const ogImage = image
@@ -101,7 +103,10 @@ export default async function Blog({ params }: { params: any }) {
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.publishedAt)}
         </p>
-        <ViewCounter allViews={allViews} slug={post.slug} trackView />
+        <div className="flex flex-row">
+          <ViewCounter allViews={allViews} slug={post.slug} trackView />
+          <Tag tags={post.tags}></Tag>
+        </div>
       </div>
       <Mdx code={post.body.code} />
     </section>

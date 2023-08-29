@@ -17,7 +17,7 @@ export type Blog = {
   publishedAt: string
   summary: string
   image?: string | undefined
-  tag?: string | undefined
+  tags: string
   /** MDX file body */
   body: MDX
   slug: string

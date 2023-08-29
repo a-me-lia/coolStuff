@@ -3,6 +3,7 @@ import Link from "next/link";
 import { allBlogs } from "contentlayer/generated";
 import ViewCounter from "./view-counter";
 import { getViewsCount } from "../../../lib/metrics";
+import Tag from "./tag";
 
 export const metadata: Metadata = {
   title: "Blog | Matthew Guo",
@@ -14,7 +15,7 @@ export default async function BlogPage() {
 
   return (
     <section className="md:mx-auto md:w-[742px] mt-32  font-mono">
-      <h1 className="font-bold text-2xl mb-2 ">blog</h1>
+      <h1 className="font-bold text-2xl mb-2 ">blog :w:</h1>
       <h2 className=" text-lg mb-8 ">
         read about the world. and sometimes shrimp.
       </h2>
@@ -35,11 +36,16 @@ export default async function BlogPage() {
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {post.title}
               </p>
-              <ViewCounter
-                allViews={allViews}
-                slug={post.slug}
-                trackView={false}
-              />
+
+              <div className="flex flex-row">
+                {" "}
+                <ViewCounter
+                  allViews={allViews}
+                  slug={post.slug}
+                  trackView={false}
+                />
+                <Tag tags={post.tags}></Tag>
+              </div>
             </div>
           </Link>
         ))}

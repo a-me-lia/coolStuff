@@ -22,6 +22,7 @@ const computedFields = {
       image: doc.image
         ? `https://homescree.net/${doc.image}`
         : `https://homescree.net/og?title=${doc.title}`,
+      tags: doc.tags,
       url: `https://homescree.net/blog/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
@@ -51,8 +52,9 @@ export const Blog = defineDocumentType(() => ({
     image: {
       type: "string",
     },
-    tag: {
+    tags: {
       type: "string",
+      required: true,
     },
   },
   computedFields,

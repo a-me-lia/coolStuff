@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { isTypeQueryNode } from "typescript";
 
 const navItems = {
   "/": {
@@ -36,8 +35,6 @@ export default function Navbar() {
   const [loaded, setLoaded] = useState(true);
 
   const [tabs, setTabs] = useState([false, false, false, false]);
-
-  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     let toTab = "0";
@@ -84,28 +81,6 @@ export default function Navbar() {
 
     setSelectedTab(Number(toTab));
   }, [pathname, selectedTab, tabs]);
-
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", (event) => {
-      let scroll = scrollY;
-      //console.log(scroll)
-      setScroll(scroll);
-    });
-  }
-
-  //     function () {
-  //       //console.log(scroll)
-  //       //console.log(projects);
-  //       for (let i = elements.length - 1; i >= 0; i--) {
-  //         if (elements[i] < 500) {
-  //           ProcessAnimationBar(i.toString());
-  //           return;
-  //         }
-  //         ProcessAnimationBar("0");
-  //       }
-  //     },
-  //     [ProcessAnimationBar, elements, scroll],
-  //   );
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
