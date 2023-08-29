@@ -80,7 +80,7 @@ export default function Navbar() {
     setTimeout(() => {
       setBarWidth(document.getElementById(toTab)?.offsetWidth! + 4);
       if (true) setBarTranslate(before - 2);
-    }, 600);
+    }, 350);
 
     setSelectedTab(Number(toTab));
   }, [pathname, selectedTab, tabs]);
@@ -137,7 +137,7 @@ export default function Navbar() {
                   transform: `translate(${barTranslate}px, -2px)`,
                 }}
                 className={`bg-neutral-900 h-[1px] ${
-                  loaded ? " transition-all duration-500 " : ""
+                  loaded ? " transition-all duration-300 " : ""
                 }`}
               ></div>
             </div>
