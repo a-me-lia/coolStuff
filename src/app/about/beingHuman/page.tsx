@@ -126,6 +126,12 @@ export default function Page() {
               Inteview with Makoto Shinkai on Suzume no Tojimari
             </Link>
           </div>
+
+          <div className="relative w-full h-96 fancy transition-opacity duration-1000">
+          <Image src='/suzume.png' alt='the movie poster' className="object-cover " fill></Image>
+          </div>
+
+
         </div>
         <div className="space-y-4">
           <div className=" transition-opacity duration-1000 fancy font-bold pb-4">
