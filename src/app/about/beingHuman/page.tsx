@@ -310,6 +310,12 @@ export default function Page() {
               reach peoples’ hearts and be remembered for how I made them feel.
             </p>
           </div>
+          <div className="fancy transition-opacity duration-1000 text-blue-400 hover:underline">
+            <Link href="https://www.youtube.com/watch?v=rTGlK5XB3Ko&vl=en-US">
+              Suzume original arrangement video
+            </Link>
+          </div>
+
         </div>
 
         <div className="space-y-4">
