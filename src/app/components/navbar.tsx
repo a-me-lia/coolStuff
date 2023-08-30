@@ -25,10 +25,10 @@ const navItems = {
 
 export default function Navbar() {
   let pathname = usePathname() || "/";
-  if (pathname.includes("/blog/")) {
+  if (pathname.includes("/blog")) {
     pathname = "/blog";
   }
-  if (pathname.includes("/about/")) {
+  if (pathname.includes("/about")) {
     pathname = "/";
   }
 
