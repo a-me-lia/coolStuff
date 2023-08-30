@@ -50,7 +50,7 @@ html {
 }
 
 .prose a {
-  @apply transition-all mt-40 decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
@@ -63,7 +63,7 @@ html {
 }
 
 .prose pre {
-  @apply border border-neutral-800 bg-neutral-900;
+  @apply border border-neutral-800 bg-neutral-900 mt-4;
 }
 
 .prose code {
@@ -76,7 +76,7 @@ html {
 }
 
 .prose img {
-  @apply m-0;
+  @apply m-0 mt-4;
 }
 
 .prose > :first-child {

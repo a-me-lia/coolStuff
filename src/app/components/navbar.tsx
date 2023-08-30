@@ -28,6 +28,9 @@ export default function Navbar() {
   if (pathname.includes("/blog/")) {
     pathname = "/blog";
   }
+  if (pathname.includes("/about/")) {
+    pathname = "/";
+  }
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);

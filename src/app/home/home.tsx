@@ -102,8 +102,9 @@ export default function Home() {
         id="style-1"
         className="mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative "
       >
+              <h1 className="font-bold text-2xl mb-2 ">home</h1>
         <div
-          className="w-full h-[800px] bg-red-300"
+          className="w-full h-[800px]"
           ref={(el) => {
             if (!el) return;
             let temp = elements;
@@ -113,7 +114,7 @@ export default function Home() {
           }}
           id="home"
         >
-          home
+          <Link href='/about'>About me</Link>
         </div>
       </div>
     </main>
