@@ -63,7 +63,9 @@ export default function Page() {
         <h1 className="text-[#ff0000] text-[32px]">
           Caroline is allergic to shrimp
         </h1>
-        <Link href='/about/beingHuman' className="hover:underline mt-6">Being human - My cultural experiences </Link>
+        <Link href="/about/beingHuman" className="hover:underline mt-6">
+          Being human - My cultural experiences{" "}
+        </Link>
       </div>
     </main>
   );

@@ -102,7 +102,7 @@ export default function Home() {
         id="style-1"
         className="mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative "
       >
-              <h1 className="font-bold text-2xl mb-2 ">home</h1>
+        <h1 className="font-bold text-2xl mb-2 ">home</h1>
         <div
           className="w-full h-[800px]"
           ref={(el) => {
@@ -114,7 +114,7 @@ export default function Home() {
           }}
           id="home"
         >
-          <Link href='/about'>About me</Link>
+          <Link href="/about">About me</Link>
         </div>
       </div>
     </main>
