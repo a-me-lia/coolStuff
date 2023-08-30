@@ -163,7 +163,7 @@ export default function Page() {
           </div>
 
           <div className="fancy transition-opacity duration-1000">
-            <p>
+            <div>
               {" "}
               My favorite pieces for some composers and artists:
               <ul className="mt-2 ml-8">
@@ -190,7 +190,7 @@ export default function Page() {
                   sonata no. 14
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
 
